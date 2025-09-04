@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Placeholder Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .placeholder { margin: 20px 0; text-align: center; }
+        canvas { border: 2px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Placeholder Image Generator</h1>
+    <p>This page will generate placeholder images for your portfolio. Right-click on each image and save them to the assets folder.</p>
+    
+    <div class="placeholder">
+        <h3>Profile Image (400x400)</h3>
+        <canvas id="profile" width="400" height="400"></canvas>
+        <p>Save this as: <code>assets/profile.jpg</code></p>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Project 1 - Stock Market Pipeline (600x400)</h3>
+        <canvas id="project1" width="600" height="400"></canvas>
+        <p>Save this as: <code>assets/project1.jpg</code></p>
+    </div>
+    
+    <div class="placeholder">
+        <h3>Project 2 - MLOps Pipeline (600x400)</h3>
+        <canvas id="project2" width="600" height="400"></canvas>
+        <p>Save this as: <code>assets/project2.jpg</code></p>
+    </div>
+
+    <script>
+        function createPlaceholder(canvasId, text, bgColor = '#667eea', textColor = '#ffffff') {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Fill background
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add gradient
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, bgColor);
+            gradient.addColorStop(1, '#764ba2');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = textColor;
+            ctx.font = 'bold 32px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            // Split text into lines if too long
+            const lines = text.split('\n');
+            const lineHeight = 40;
+            const startY = canvas.height / 2 - ((lines.length - 1) * lineHeight / 2);
+            
+            lines.forEach((line, index) => {
+                ctx.fillText(line, canvas.width / 2, startY + (index * lineHeight));
+            });
+        }
+        
+        // Generate placeholders
+        createPlaceholder('profile', 'Abhishek\nVerma\nData Engineer');
+        createPlaceholder('project1', 'Real-Time Stock\nMarket Pipeline\nKafka + Spark', '#28a745');
+        createPlaceholder('project2', 'MLOps Pipeline\nAWS/GCP\nApache Airflow', '#dc3545');
+    </script>
+</body>
+</html>
