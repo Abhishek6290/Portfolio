@@ -186,19 +186,4 @@ Already included:
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👨‍💻 About the Developer
-
-Created by **Abhishek Verma** - Data Engineer passionate about building scalable data solutions and beautiful web experiences.
-
-- 📧 Email: abhishekverma@gmail.com
-- 📱 Phone: +91-8368211036
-- 💼 LinkedIn: [Your LinkedIn Profile]
-- 🌐 Website: [Your Portfolio URL]
-
----
-
-⭐ If you found this portfolio template helpful, please give it a star!
-
-## 🚀 Live Demo
-
-[View Live Portfolio →](your-portfolio-url-here)
+ 
